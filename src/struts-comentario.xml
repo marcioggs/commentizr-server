@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+	
+	<package name="comentarios" namespace="/" extends="commentizrPackage">
+		<default-class-ref class="com.commentizr.action.ComentarioAction" />
+		
+		<action name="inserirComentario" method="inserirComentario" />
+		
+		<action name="obterComentarios" method="obterComentarios">
+			<result>/WEB-INF/pages/comentarios.jsp</result>
+		</action>
+		
+		<action name="likarComentario" method="likarComentario" />
+		
+		<action name="dislikarComentario" method="dislikarComentario" />
+		
+		<action name="exibirRespostas" method="exibirRespostas">
+			<result>/WEB-INF/pages/respostas.jsp</result>
+		</action>
+		
+		<action name="inserirResposta" method="inserirResposta">
+			<result>/WEB-INF/pages/respostas.jsp</result>
+		</action>
+		
+		<action name="likarResposta" method="likarResposta" />
+		
+		<action name="dislikarResposta" method="dislikarResposta" />
+		
+		<action name="*" class="com.commentizr.action.TesteAction" method="{1}">
+			<interceptor-ref name="defaultStack" />
+		</action>
+		
+	</package>
+
+</struts>

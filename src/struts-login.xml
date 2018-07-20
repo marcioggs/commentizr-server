@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+	"http://struts.apache.org/dtds/struts-2.0.dtd">
+
+<struts>
+
+	<package name="login" namespace="/login" extends="commentizrPackage">
+		<default-interceptor-ref name="publicoStack" />
+		<default-class-ref class="com.commentizr.action.LoginAction" />
+		
+		<action name="iniciarCriarConta">
+			<result>/WEB-INF/pages/login/criar-conta.jsp</result>
+		</action>
+		
+		<action name="criarConta" method="criarConta">
+			<result>/WEB-INF/pages/login/conta-criada.jsp</result>
+		</action>
+		
+		<action name="confirmarConta" method="confirmarConta">
+			<result>/WEB-INF/pages/login/conta-confirmada.jsp</result>
+		</action>
+		
+		<action name="iniciarEnviarEmailRecuperacaoConta">
+			<result>/WEB-INF/pages/login/enviar-email-recuperacao-conta.jsp</result>
+		</action>
+		
+		<action name="enviarEmailRecuperacaoConta" method="enviarEmailRecuperacaoConta">
+			<result>/WEB-INF/pages/login/email-recuperacao-conta-enviado.jsp</result>
+		</action>
+		
+		<action name="iniciarRecuperarConta">
+			<result>/WEB-INF/pages/login/recuperar-conta.jsp</result>
+		</action>
+		
+		<action name="recuperarConta" method="recuperarConta">
+			<result>/WEB-INF/pages/login/conta-recuperada.jsp</result>
+			<result name="error">/WEB-INF/pages/login/recuperar-conta.jsp</result>
+		</action>
+		
+		<action name="iniciarLogin">
+			<result>/WEB-INF/pages/login/login.jsp</result>
+		</action>
+		
+		<action name="processarLogin" method="processarLogin">
+			<result type="chain">
+				<param name="namespace">/</param>
+				<param name="actionName">obterComentarios</param>
+			</result>
+		</action>
+	</package>
+	
+</struts>
